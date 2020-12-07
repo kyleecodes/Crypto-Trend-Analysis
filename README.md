@@ -1,4 +1,6 @@
-## Analysis of Cryptocurrency Trends, using Pycharm's Scientific Mode
+## Analysis of Cryptocurrency Trends
+
+### Using Pycharm's Scientific Mode for data visulization!
 
 #### Explore daily and weekly stats to discover the biggest winners and losers in crypto as well as most capitalized cryptocurrencies of all time!
 
