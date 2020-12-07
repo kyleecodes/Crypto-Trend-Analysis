@@ -100,11 +100,13 @@ largecaps = cap.query("market_cap_usd > 1E+10")
 # Printing out largecaps
 largecaps
 
+
 # Making a nice function for counting different marketcaps from the
 # "cap" DataFrame. Returns an int.
 # INSTRUCTORS NOTE: Since you made it to the end, consider it a gift :D
 def capcount(query_string):
     return cap.query(query_string).count().id
+
 
 # Labels for the plot
 LABELS = ["biggish", "micro", "nano"]
@@ -116,7 +118,7 @@ biggish = capcount("market_cap_usd > 3E+8")
 micro = capcount("market_cap_usd >= 5E+7 & market_cap_usd < 3E+8")
 
 # ... and for nano
-nano =  capcount("market_cap_usd < 5E+7")
+nano = capcount("market_cap_usd < 5E+7")
 
 # Making a list with the 3 counts
 values = [biggish, micro, nano]
