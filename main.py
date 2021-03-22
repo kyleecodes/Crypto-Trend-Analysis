@@ -1,14 +1,8 @@
-# pandas
 import pandas as pd
-
-# Importing matplotlib and setting aesthetics for plotting later.
 import matplotlib.pyplot as plt
 
-# %matplotlib inline
-# %config InlineBackend.figure_format = 'svg'
 plt.style.use('fivethirtyeight')
 
-# Reading datasets/coinmarketcap_06122017.csv into pandas
 dec6 = pd.read_csv('data/coinmarketcap_06122017.csv')
 
 market_cap_raw = dec6[['id', 'market_cap_usd']]
@@ -53,14 +47,15 @@ volatility = volatility.sort_values('percent_change_24h')
 volatility.head()
 
 
-# Defining a function with 2 parameters, the series to plot and the title
+
 def top10_subplot(volatility_series, title):
-    # making the subplot and the figure for nrows and ncolumns
     fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(10, 6))
+    
     # Plotting with pandas the barchart for the top 10 losers with the color RED
     ax = volatility_series[:10].plot.bar(color="darkred", ax=axes[0])
     fig.suptitle(title)
     ax.set_ylabel('% change')
+    
     #Plotting top 10 winners and in darkblue
     ax = volatility_series[-10:].plot.bar(color="darkblue", ax=axes[1])
     return fig, ax
@@ -72,12 +67,10 @@ DTITLE = "24 hours top losers and winners"
 # and title DTITLE
 fig, ax = top10_subplot(volatility.percent_change_24h, DTITLE)
 
-# Sorting percent_change_7d in ascending order
 volatility7d = volatility.sort_values("percent_change_7d")
 
 WTITLE = "Weekly top losers and winners"
 
-# Calling the top10_subplot function
 fig, ax = top10_subplot(volatility7d.percent_change_7d, WTITLE);
 
 # Selecting everything bigger than 10 billion
