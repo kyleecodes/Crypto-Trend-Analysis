@@ -46,8 +46,6 @@ volatility = volatility.sort_values('percent_change_24h')
 
 volatility.head()
 
-
-
 def top10_subplot(volatility_series, title):
     fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(10, 6))
     
@@ -56,15 +54,13 @@ def top10_subplot(volatility_series, title):
     fig.suptitle(title)
     ax.set_ylabel('% change')
     
-    #Plotting top 10 winners and in darkblue
+    # Plotting top 10 winners and in darkblue
     ax = volatility_series[-10:].plot.bar(color="darkblue", ax=axes[1])
     return fig, ax
 
 
 DTITLE = "24 hours top losers and winners"
 
-# Calling the function above with the volatility.percent_change_24h series
-# and title DTITLE
 fig, ax = top10_subplot(volatility.percent_change_24h, DTITLE)
 
 volatility7d = volatility.sort_values("percent_change_7d")
@@ -77,7 +73,6 @@ fig, ax = top10_subplot(volatility7d.percent_change_7d, WTITLE);
 largecaps = cap.query("market_cap_usd > 1E+10")
 
 largecaps
-
 
 # Making a nice function for counting different marketcaps from the
 # "cap" DataFrame. 
